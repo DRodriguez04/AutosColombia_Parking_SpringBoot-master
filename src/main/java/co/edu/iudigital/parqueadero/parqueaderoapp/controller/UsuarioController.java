@@ -17,42 +17,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.iudigital.parqueadero.parqueaderoapp.domain.Vehiculo;
-import co.edu.iudigital.parqueadero.parqueaderoapp.services.VehiculoService;
+import co.edu.iudigital.parqueadero.parqueaderoapp.domain.Usuario;
+import co.edu.iudigital.parqueadero.parqueaderoapp.services.UsuarioService;
 
 @RestController
-@RequestMapping("/vehiculo")
+@RequestMapping("/usuario")
 @CrossOrigin("*")
-public class VehiculoController {
-
+public class UsuarioController {
+    
     @Autowired
-    private VehiculoService vehiculoService;
+    private UsuarioService usuarioService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void creaVehiculo(@RequestBody Vehiculo vehiculo) {
-        vehiculoService.registerVehiculo(vehiculo);
+    public void crearUsuario(@RequestBody Usuario usuario){
+        usuarioService.registerUsuario(usuario);
     }
 
     @GetMapping
-    public List<Vehiculo> traerVehiculo() {
-        List<Vehiculo> vList = new ArrayList<>();
-        return vList;
+    public List<Usuario> obtenerListUsuarios() {
+        List<Usuario> uList = new ArrayList<>();
+        return uList;
     }
 
-    @GetMapping("/{id_vehiculo}")
-    public Optional<Vehiculo> obtVehiculosById(@PathVariable int id_vehiculo) {
-        return vehiculoService.gVehOptional(id_vehiculo);
+    @GetMapping("/{id}")
+    public Optional<Usuario> obtUsuariosById(@PathVariable int id) {
+        return usuarioService.gOptionalUser(id);
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void actualizarVehiculo(@RequestBody Vehiculo vehiculo){
-        vehiculoService.actVehiculo(vehiculo);
+    public void actualizarUsuario(@RequestBody Usuario usuario){
+        usuarioService.actUsuario(usuario);
     }
 
-    @DeleteMapping("/{id_vehiculo}")
-    public void eliminarVehiculo(@PathVariable int id_vehiculo){
-        vehiculoService.delVehiculo(id_vehiculo);
+    @DeleteMapping("/{id}")
+    public void eliminarUsuario(@PathVariable int id){
+        usuarioService.delUsuario(id);
     }
 }

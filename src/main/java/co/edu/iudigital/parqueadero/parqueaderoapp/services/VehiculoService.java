@@ -34,6 +34,10 @@ public class VehiculoService {
         return gVeByPlaca;
     }
 
+    public void actVehiculo(Vehiculo vehiculo){
+        vehiculoRepository.save(vehiculo);
+    }
+
     public void delVehiculo(int id_vehiculo) {
         vehiculoRepository.deleteById(id_vehiculo);
     }
