@@ -27,6 +27,9 @@ public class Administrador {
     @NotNull
     private String apellido;
 
+    @NotNull
+    private String gestionar;
+
     @JoinColumn(name = "FK", referencedColumnName = "PK estatus")
     private int id_estatus;
 
@@ -60,6 +63,14 @@ public class Administrador {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getGestionar() {
+        return gestionar;
+    }
+
+    public void setGestionar(String gestionar) {
+        this.gestionar = gestionar;
     }
 
     public int getId_estatus() {
